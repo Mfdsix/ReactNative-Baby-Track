@@ -8,7 +8,7 @@ import ScreenStyles from "../styles/Splash";
 export default function Splash({navigation}){
     return <ScrollView>
         <View>
-            <Image/>
+            <Image src={ require("../assets/images/splash.png") }/>
             <View>
                 <Text>Track your baby activities</Text>
                 <Text>This app will track your daily baby activities. Get reminder to feed or sleep your baby.</Text>
