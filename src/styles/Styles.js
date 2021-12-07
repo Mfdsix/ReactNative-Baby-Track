@@ -82,7 +82,7 @@ export default StyleSheet.create({
     color: Colors.LIGHT,
   },
   textGrey: {
-    color: Colors.GREY,
+    color: Colors.TEXT_GREY,
   },
   textSmoke: {
     color: Colors.WHITE_SMOKE,
