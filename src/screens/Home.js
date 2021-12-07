@@ -34,7 +34,12 @@ export default function Home({navigation}) {
           Styles.flexBetween,
           Styles.pd2,
         ]}>
-        <Icon color={Colors.DARK} name="grid-outline" type="ionicon" />
+        <Icon
+          size={28}
+          color={Colors.DARK}
+          name="grid-outline"
+          type="ionicon"
+        />
         <View style={Styles.alignCenter}>
           <Text style={[Styles.textDark, Styles.textBold, Styles.textMd]}>
             Monday

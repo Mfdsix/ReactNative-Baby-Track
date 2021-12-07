@@ -106,7 +106,7 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   textXl: {
-    fontSize: 34,
+    fontSize: 30,
   },
   pd1: {
     padding: 10,
