@@ -47,13 +47,14 @@ export default function BottomNavigation(props) {
         ]}>
         {MENUS.map((menu, index) => (
           <TouchableOpacity
+            key={'menu-' + index}
             activeOpacity={0.7}
             onPress={() =>
               menu.destination
                 ? props.navigation.navigate(menu.destination)
                 : false
             }>
-            <View key={'menu-' + index}>
+            <View>
               <View
                 style={[
                   menu.type == 'center' ? Styles.bgPrimary : {},

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ScrollView, View, Text, Image, Switch} from 'react-native';
 import {Icon} from 'react-native-elements';
 
@@ -24,6 +24,8 @@ export default function Home({navigation}) {
     },
   ];
 
+  const [activities, setActivities] = useState(ACTIVITIES);
+
   return (
     <View style={[Styles.full, Styles.bg]}>
       {/* header */}
@@ -42,9 +44,9 @@ export default function Home({navigation}) {
         />
         <View style={Styles.alignCenter}>
           <Text style={[Styles.textDark, Styles.textBold, Styles.textMd]}>
-            Monday
+            Tuesday
           </Text>
-          <Text style={[Styles.textGrey, Styles.textSm]}>6 Dec 2021</Text>
+          <Text style={[Styles.textGrey, Styles.textSm]}>7 Dec 2021</Text>
         </View>
         <View
           style={[
@@ -95,6 +97,7 @@ export default function Home({navigation}) {
                 </Text>
                 <Text
                   style={[
+                    Styles.textDark,
                     {
                       fontSize: 8,
                     },
@@ -119,7 +122,7 @@ export default function Home({navigation}) {
                     Styles.flexBetween,
                     Styles.alignCenter,
                     {
-                      width: 350,
+                      width: 300,
                     },
                   ]}>
                   <Image style={ScreenStyles.tipsImage} source={tip.image} />
@@ -166,14 +169,15 @@ export default function Home({navigation}) {
               </Text>
               <Text style={Styles.textGrey}>See all</Text>
             </View>
-            {ACTIVITIES.map((activity, index) => (
+            {activities.map((activity, index) => (
               <View
                 key={'activity-' + index}
                 style={[
                   Styles.flexRow,
                   Styles.flexBetween,
                   Styles.alignCenter,
-                  Styles.bd,
+                  Styles.bg,
+                  Styles.shadow,
                   Styles.bdRad2,
                   Styles.pd2,
                   Styles.mb1,
@@ -198,15 +202,18 @@ export default function Home({navigation}) {
                       style={[Styles.textDark, Styles.textBold, Styles.textMd]}>
                       {activity.title}
                     </Text>
-                    <Text>{activity.time}</Text>
+                    <Text style={Styles.textDark}>{activity.time}</Text>
                   </View>
                 </View>
                 <Switch
-                  trackColor={{false: '#767577', true: '#81b0ff'}}
-                  thumbColor={activity.reminder ? '#81b0ff' : '#f4f3f4'}
-                  ios_backgroundColor="#3e3e3e"
+                  trackColor={{false: Colors.GREY, true: Colors.PRIMARY}}
+                  thumbColor={activity.reminder ? Colors.PRIMARY : Colors.GREY}
+                  ios_backgroundColor={Colors.TEXT_GREY}
                   value={activity.reminder}
-                  onValueChange={() => !ACTIVITIES[index].reminder}
+                  onValueChange={function () {
+                    activities[index].reminder = !activity.reminder;
+                    setActivities(activities);
+                  }}
                 />
               </View>
             ))}
